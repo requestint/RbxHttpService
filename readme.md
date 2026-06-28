@@ -89,7 +89,7 @@ end
 local response = RbxHttpService.RequestAsyncParallel(requests)
 
 print("Batch response: ", response)
-
+```
 ---
 
 ## Built By
