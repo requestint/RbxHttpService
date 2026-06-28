@@ -24,7 +24,7 @@ Requests go through a simple pipeline:
 ```
 Roblox (RbxHttpService)
     ↓
-Cloudflare Workers    — auth, rate limiting
+Cloudflare Workers    — auth, rate limiting (Suggested CloudFlare worker code will be in this repository, NOTE: the template does not have rate limitting)
     ↓
 Railway (Express)     — middleware, routing
     ↓
@@ -48,10 +48,11 @@ Requests are also batched internally, so instead of firing 10 individual HTTP ca
 
 ## Usage
 
+# SINGLE FORM REQUEST
 ```lua
 local RbxHttpService = require(path.to.RbxHttpService)
 
-local response = RbxHttpService:Request({
+local response = RbxHttpService.RequestAsync({
     Url = "https://your-backend.com/endpoint",
     Method = "POST",
     Body = { key = "value" }
@@ -59,6 +60,35 @@ local response = RbxHttpService:Request({
 
 print(response.Body)
 ```
+# BATCHING / MULTI REQUEST FORM
+```lua
+-------------------
+--- [ Modules ] ---
+local RbxHttpService = require(path.to.RbxHttpService)
+
+------------------
+--- [ Tables ] ---
+local requests = {}
+local template = {
+    Url = "https://your-backend.com/endpoint",
+    Method = "POST",
+    Body = { key = "value" }
+}
+
+
+--------------------
+--- [ Varibles ] ---
+local requestAmount: number = 10 -- for the test we'll say 10 requests is the amount you want to do
+
+---------------------
+--- [ Functions ] ---
+for i = 0, requestAmount, 1 do
+    requests[i] = template -- You don't have to do the same request format repeatedly you can do like x posts for auth x get's for whatever and so on whatever type of requests you need to do doesn't matter in batching they'll all return at the same time
+end
+
+local response = RbxHttpService.RequestAsyncParallel(requests)
+
+print("Batch response: ", response)
 
 ---
 
