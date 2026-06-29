@@ -39,10 +39,10 @@ Requests are also batched internally, so instead of firing 10 individual HTTP ca
 
 ## Features
 
-- **Async over coroutines** — callers just `await` a request, the thread handles itself
-- **Request batching** — groups outgoing requests to avoid rate limit issues
-- **Relay support** — routes through a Cloudflare Worker for auth and security
-- **Clean API** — simple to call, no boilerplate needed
+- **Async over coroutines** --> callers just `await` a request, the thread handles itself
+- **Request batching** --> groups outgoing requests to avoid rate limit issues
+- **Relay support**  --> routes through a Cloudflare Worker for auth and security
+- **Clean API** --> simple to call, no boilerplate needed
 
 ---
 
@@ -100,5 +100,5 @@ print("Batch response: ", response)
 
 ## Built By
 
-**Magic** — solo Roblox developer  
+**Magic** ->> solo Roblox developer  
 GitHub: [github.com/requestint](https://github.com/requestint)
