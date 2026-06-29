@@ -88,6 +88,12 @@ end
 
 local response = RbxHttpService.RequestAsyncParallel(requests)
 
+RbxHttpService.Batcher:Start() -- << Starts flushing requests
+
+repeat task.wait until response ~= nil
+
+RbxHttpService.Batcher:Stop() -- << Stops flushing unnesscary requests
+
 print("Batch response: ", response)
 ```
 ---
