@@ -58,6 +58,12 @@ local response = RbxHttpService.RequestAsync({
     Body = { key = "value" }
 })
 
+RbxHttpService.Batcher:Start()
+
+repeat task.wait until response ~= nil
+
+RbxHttpService.Batcher:Stop() -- << Stops flushing unnesscary requests
+
 print(response.Body)
 ```
 # BATCHING / MULTI REQUEST FORM
