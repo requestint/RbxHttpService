@@ -1,6 +1,6 @@
 # RbxHttpService
 
-A custom HTTP request module for Roblox, built in Luau. It wraps Roblox's built-in `HttpService` with batching, async handling via coroutines, and a relay layer — making external API calls cleaner, safer, and more efficient inside a Roblox game.
+A custom HTTP request module for Roblox, built in Luau. It wraps Roblox's built-in `HttpService` with batching, async handling via coroutines, and a relay layer making external API calls cleaner, safer, and more efficient inside a Roblox game.
 
 ---
 
