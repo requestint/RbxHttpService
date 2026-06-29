@@ -1,0 +1,36 @@
+{
+  "name": "rbxhttpservice-relay",
+  "main": "src/worker.js",
+  "workers_dev": true,
+  "preview_urls": false,
+  "compatibility_date": "2026-05-28",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": false,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  },
+  "kv_namespaces": [
+    {
+      "id": "ada7f1724e9e4d33b856e8e44bd230c2",
+      "binding": "COMMANDS"
+    },
+    {
+      "id": "cb624d99caa84c5893df48dc13e66ec2",
+      "binding": "rbx-http-cache"
+    }
+  ],
+  "vars": {
+    "SECRET_KEY": "YOUR SECRET KEY",
+    "SERVER_URL": "YOUR SERVER URL"
+  }
+}
